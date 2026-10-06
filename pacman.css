@@ -5,16 +5,60 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
+  min-height: 100vh;
 }
-.container { text-align: center; }
-h1 { color: #ffff00; margin-bottom: 10px; letter-spacing: 4px; }
+.container { text-align: center; width: 100%; max-width: 500px; }
+h1 { color: #ffff00; margin-bottom: 8px; letter-spacing: 4px; font-size: 1.8rem; }
 .hud {
   display: flex;
   justify-content: space-between;
-  width: 480px;
-  margin: 0 auto 10px;
-  font-size: 18px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 8px;
+  font-size: 1rem;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-canvas { background: #000; border: 2px solid #2222ff; }
-#msg { margin-top: 10px; color: #aaa; }
+.game-wrap { position: relative; width: 100%; max-width: 480px; margin: 0 auto; }
+canvas { background: #000; border: 2px solid #2222ff; display: block; width: 100%; height: auto; }
+#msg { margin-top: 8px; color: #aaa; font-size: 0.9rem; min-height: 1.2em; }
+#restart {
+  margin-top: 12px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  background: #2222ff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#restart:hover { background: #3333ff; }
+
+/* JOYSTICK */
+.joystick {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 100px;
+  height: 100px;
+  border: 3px solid #444;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  touch-action: none;
+  display: none; /* mostrado via JS se touch */
+}
+.stick {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 40px; height: 40px;
+  margin: -20px 0 0 -20px;
+  background: #ffff00;
+  border-radius: 50%;
+  border: 2px solid #cccc00;
+  transition: transform 0.05s linear;
+  pointer-events: none;
+}
+@media (pointer: coarse) {
+  .joystick { display: block; }
+}

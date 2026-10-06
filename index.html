@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Pac-Man</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>PAC-MAN</title>
 <link rel="stylesheet" href="pacman.css">
 </head>
 <body>
@@ -11,9 +12,16 @@
   <div class="hud">
     <span>Pontos: <b id="score">0</b></span>
     <span>Vidas: <b id="lives">3</b></span>
+    <span>Recorde: <b id="highscore">0</b></span>
   </div>
-  <canvas id="game" width="448" height="496"></canvas>
-  <p id="msg">Use as setas ou WASD para mover</p>
+  <div class="game-wrap">
+    <canvas id="game" width="480" height="432"></canvas>
+    <div class="joystick" id="joystick" aria-hidden="true">
+      <div class="stick" id="stick"></div>
+    </div>
+  </div>
+  <p id="msg">Use setas ou WASD (desktop) / joystick (celular)</p>
+  <button id="restart" style="display:none;">Jogar Novamente</button>
 </div>
 <script src="pacman.js"></script>
 </body>
